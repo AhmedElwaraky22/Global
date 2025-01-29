@@ -1,0 +1,26 @@
+<div class="w-full p-4">
+  <div class="overflow-x-auto shadow-md rounded-lg">
+    <table class="w-full text-sm text-left">
+      <thead class="text-xs uppercase bg-gray-50">
+        <tr>
+          <th *ngFor="let header of usersData" 
+              class="px-6 py-3 text-gray-700">
+            {{ header }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of usersData" 
+            class="bg-white border-b hover:bg-gray-50">
+          <td class="px-6 py-4">{{ row.id }}</td>
+          <td class="px-6 py-4">{{ row.cover }}</td>
+          <td class="px-6 py-4">{{ row.priority }}</td>
+          <td class="px-6 py-4">{{ row.title}}</td>
+          <td class="px-6 py-4">{{ row.type }}</td>
+          <td class="px-6 py-4">{{ row.minimum_years_of_experience }}</td>
+          <td class="px-6 py-4">{{ row.number_of_vacancies }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
