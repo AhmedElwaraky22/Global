@@ -1,0 +1,41 @@
+<div class="p-6">
+  <h2 class="text-xl font-semibold text-gray-900">{{ job.title }}</h2>
+  <p class="text-gray-600 text-sm mt-2">{{ job.page.name }}</p>
+  <p class="text-gray-500 text-xs mt-1">
+    {{ job.date_published }} - {{ job.page.location?.address_line_one }}
+  </p>
+
+  <div class="mt-4">
+    <h3 class="font-medium text-gray-800">Job Requirements</h3>
+    <p class="text-sm text-gray-700">{{ job.requirements }}</p>
+  </div>
+
+  <div class="mt-4">
+    <h3 class="font-medium text-gray-800">Responsibilities</h3>
+    <p class="text-sm text-gray-700">{{ job.responsibilities }}</p>
+  </div>
+
+  <div class="mt-6 flex gap-2">
+    <button
+      (click)="applyForJob()"
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+    >
+      Apply
+    </button>
+    <button
+      (click)="saveJob()"
+      class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200"
+    >
+      Save Job
+    </button>
+  </div>
+
+  <div class="mt-4">
+    <button
+      (click)="closeModal()"
+      class="px-4 py-2 text-sm text-gray-600 hover:text-gray-800"
+    >
+      Close
+    </button>
+  </div>
+</div>

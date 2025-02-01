@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environments';
+import { Job } from '../interface/mainInterface';
 
-export interface FileResponse<T> {
-  success: boolean;
-  data?: T;
-  error?: string;
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +12,28 @@ export interface FileResponse<T> {
 
 export class MainApiService {
 
+
   constructor(private _HttpClient : HttpClient) { }
 
 
-  getAllData():Observable<any>{
-    return this._HttpClient.get(`${environment.apiUrl}jobs/all?pagination_type=paginate&per_page=11`)
+  getAllData(page: number, perPage: number): Observable<any> {
+    return this._HttpClient.get(
+      `${environment.apiUrl}jobs/all?pagination_type=paginate&page=${page}&per_page=${perPage}`
+    );
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

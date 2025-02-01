@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { NavBarComponent } from "./component/nav-bar/nav-bar.component";
 import { ParentComponent } from './component/parent/parent.component';
-import { ChildComponent } from "./component/child/child.component";
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 
@@ -11,7 +14,7 @@ import { ChildComponent } from "./component/child/child.component";
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, ParentComponent],
+  imports: [RouterOutlet, NavBarComponent , ParentComponent ,RegisterComponent ,LoginComponent ],
 })
 export class AppComponent {
   title = 'JobGloable';
