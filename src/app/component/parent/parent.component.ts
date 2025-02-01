@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { } from ' ../../../src/app/interface/mainInterface'
 import { MatDialog } from '@angular/material/dialog';
 import { SeeMoreLessDirective } from '../../pipes/see-more-less.directive';
+import { ToastrService } from 'ngx-toastr'; // Import ToastrService
 
 
 @Component({
@@ -57,8 +58,8 @@ export class ParentComponent implements OnInit {
   constructor(
     private _mainApi: MainApiService,
     private fb: FormBuilder,
-    private dialog: MatDialog // Inject MatDialog
-
+    private dialog: MatDialog ,
+    private toastr: ToastrService
   ) {
     this.jobForm = this.fb.group({
       name: ['', Validators.required],
@@ -260,7 +261,11 @@ export class ParentComponent implements OnInit {
       }
 
       console.log("Form Submitted Successfully!");
-
+      this.toastr.success('Form Submitted successful!', 'Success', {
+        timeOut: 3000, // Duration in milliseconds
+        positionClass: 'toast-top-right', // Position of the toast
+        closeButton: true, // Show close button
+      });
 
 
       if (this.selectedJob) {

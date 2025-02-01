@@ -6,6 +6,9 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
+import { provideToastr } from 'ngx-toastr'; // Import provideToastr
+import { provideAnimations } from '@angular/platform-browser/animations'; // Required for toastr animations
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +17,8 @@ export const appConfig: ApplicationConfig = {
      provideClientHydration(withEventReplay()),
      provideHttpClient(),
      provideAnimationsAsync(),
-     MatDialogModule
+     MatDialogModule,
+    provideAnimations(),
+    provideToastr(),
     ]
 };
